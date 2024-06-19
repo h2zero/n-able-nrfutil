@@ -42,7 +42,7 @@ import ctypes
 from importlib import import_module
 import logging
 
-from pc_ble_driver_py.exceptions import NordicSemiException
+from nordicsemi.exceptions import NordicSemiException
 
 
 LIBUSB_ENDPOINT_IN = 0x80

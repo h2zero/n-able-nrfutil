@@ -49,7 +49,7 @@ import intelhex
 # Nordic libraries
 from nordicsemi.dfu.nrfhex import nRFArch
 from nordicsemi.dfu.package import Package
-from pc_ble_driver_py.exceptions import NordicSemiException
+from nordicsemi.exceptions import NordicSemiException
 
 logger = logging.getLogger(__name__)
 
@@ -273,12 +273,12 @@ class BLDFUSettings:
         # Fill the entire settings page with 0's
         for offset in range(0, self.setts.bytes_count):
             self.ihex[self.bl_sett_addr + offset] = 0x00
-            
+
         # Make sure the hex-file is 32bit-word-aligned
         fill_bytes = ((self.setts.bytes_count + 4 - 1) & ~(4 - 1)) - self.setts.bytes_count
         for offset in range(self.setts.bytes_count, self.setts.bytes_count + fill_bytes):
             self.ihex[self.bl_sett_addr + offset] = 0xFF
-        
+
         self._add_value_tohex(self.setts.sett_ver, self.bl_sett_ver)
         self._add_value_tohex(self.setts.app_ver, self.app_ver)
         self._add_value_tohex(self.setts.bl_ver, self.bl_ver)
