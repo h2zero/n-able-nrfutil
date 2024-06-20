@@ -7,7 +7,7 @@ venv/
 # Build
 build/
 dist/
-nrfutil.egg-info/
+n_able_nrfutil.egg-info/
 
 # Test artefacts
 /nordicsemi/dfu/tests/mypackage.zip

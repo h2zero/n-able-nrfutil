@@ -61,7 +61,7 @@ try:
     import pkg_resources
     installed_packages = [d for d in pkg_resources.working_set]
     flat_installed_packages = [package.project_name for package in installed_packages]
-    package = installed_packages[flat_installed_packages.index('nrfutil')]
+    package = installed_packages[flat_installed_packages.index('n-able-nrfutil')]
     installed_versions = [int(i) for i in package.version.split(".")]
     new_versions = [int(i) for i in version.NRFUTIL_VERSION.split(".")]
     legacy_version = False
@@ -74,7 +74,7 @@ try:
 
     if legacy_version:
         valid_response = ["y", "yes"]
-        msg = ("A newer version of nrfutil may already be installed. Consider using a separate "
+        msg = ("A newer version of n-able-nrfutil may already be installed. Consider using a separate "
                "virtual environment when installing legacy versions. \nProceed (y/N)? ")
         print(msg)
         sys.stdout.flush()
@@ -135,7 +135,7 @@ class NoseTestCommand(TestCommand):
 
 
 setup(
-    name="nrfutil",
+    name="n-able-nrfutil",
     version=version.NRFUTIL_VERSION,
     license="Other/Proprietary License",
     author="Nordic Semiconductor ASA",
